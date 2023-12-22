@@ -1,5 +1,4 @@
 import { createTheme } from '@mui/material/styles';
-import './fonts/fonts.css'
 
 const theme = createTheme({
   palette: {
@@ -11,9 +10,6 @@ const theme = createTheme({
     },
     
   },
-  typography: {
-    fontFamily: 'raaj'
-  }
 });
 
 export default theme;

@@ -48,7 +48,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
         />
               
       </Grid>
-      <Button variant="contained">Select</Button>
+      <Button variant="contained" size="large">Select</Button>
     </Grid>
   );
 };

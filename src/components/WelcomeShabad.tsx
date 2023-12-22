@@ -8,14 +8,16 @@ export default function WelcomeShabad() {
         style={{
           flex: 1,
           // minWidth: "100vw",
-          padding: "10%"
+          padding: "5%"
         }}
       >
         <Typography
           align="center"
           variant="h4"
+          fontFamily={'Raaj'}
           style={{
             color: "black",
+            padding:'1.5%'
           }}
         >
           ਹੁਕਮੈ ਅੰਦਰਿ ਸਭੁ ਕੋ ਬਾਹਰਿ ਹੁਕਮ ਨ ਕੋਇ।।
@@ -23,8 +25,11 @@ export default function WelcomeShabad() {
         <Typography 
         variant="h4"
         align="center"
+        fontFamily={'Raaj'}
+
         style={{ 
-          color: "black"
+          color: "black",
+          padding:'1.5%'
           }}>
             ਨਾਨਕ ਹੁਕਮੈ ਜੇ ਬੁਝੈ ਤ ਹਉਮੈ ਕਹੈ ਨ ਕੋਇ।।
         </Typography>
