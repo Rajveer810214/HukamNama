@@ -1,4 +1,51 @@
 @font-face {
     font-family: 'Raaj';
-    src: url('./Raaj.ttf');
+    src: url('./punjabi/Raaj.ttf');
   }
+@font-face {
+    font-family: 'Anmol';
+    src: url('./punjabi/AnmolLipiSG.ttf');
+  }
+@font-face {
+  font-family: 'Anmol-Bani';
+  src: url('./punjabi/AnmolUniBaniTrue.ttf');
+}
+@font-face {
+  font-family: 'Anmol-Bold';
+  src: url('./punjabi/AnmolLipiBoldTrue.ttf');
+}
+@font-face {
+  font-family: 'Noto-Bold';
+  src: url('./punjabi/NotoSansGurmukhiBoldTrue.ttf');
+}
+@font-face {
+  font-family: 'Noto-Sans';
+  src: url('./punjabi/NotoSansGurmukhiTrue.ttf');
+}
+@font-face {
+  font-family: 'GurbaniAkhar';
+  src: url('./punjabi/GurbaniAkharTrue.ttf');
+}
+
+
+@font-face {
+  font-family: 'Gurbani Akhar Heavy';
+  src: url('./punjabi/GurbaniAkharHeavyTrue.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Gurbani Akhar Thick';
+  src: url('./punjabi/GurbaniAkharThickTrue.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Caveat';
+  src: url('./english/Caveat.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Muli';
+  src: url('./english/Muli.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'PT-Serif';
+  src: url('./english/PT-Serif.ttf') format('truetype');
+}

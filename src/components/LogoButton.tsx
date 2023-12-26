@@ -1,3 +1,4 @@
+// LogoButton.tsx
 import React, { ChangeEvent, useRef } from "react";
 import Button from "@mui/material/Button";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
@@ -27,11 +28,10 @@ const LogoUploadButton: React.FC<LogoUploadButtonProps> = ({
 
   return (
     <div>
-      {/* Use type assertion to avoid TypeScript error */}
       <input
         type="file"
         accept="image/*"
-        ref={inputRef as React.RefObject<HTMLInputElement>}
+        ref={(ref) => (inputRef.current = ref)}
         style={{ display: "none" }}
         onChange={handleFileChange}
       />

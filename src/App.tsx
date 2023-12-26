@@ -1,16 +1,16 @@
 
 import React from 'react'
-import TemplatePage from './Components/TemplatePage'
-import HomePage from './components/HomePage'
-
+import TemplatePage from "./Components/TemplatePage";
 function App() {
 
 
   return (
     <>
-    <HomePage/>
+  <TemplatePage/>
+
     </>
   )
 }
+
 
 export default App
