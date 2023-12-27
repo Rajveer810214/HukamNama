@@ -9,6 +9,7 @@ interface DropdownProps {
   options: string[];
   onOptionChange?: (option: string, id: string) => void;
   ids: string[];
+  
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
@@ -35,7 +36,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         <MenuItem value="" disabled>
           {dropdownName}
         </MenuItem>
-        {options.map((option, index) => (
+        {options.map((option) => (
           <MenuItem key={option} value={option}>
             {option}
           </MenuItem>

@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Theme 1",
+        "header-footer-background": "#fff",
+        "mid-left": "#7db6c7",
+        "mid-mid": "#38987b7",
+        "mid-right": "#fec43c"
+    },
+    {
+        "name": "Theme 2",
+        "header-footer-background": "#000",
+        "mid-left": "#05060b",
+        "mid-mid": "#38987b7",
+        "mid-right": "#fec43c"
+    },
+    {
+        "name": "Theme 3",
+        "header-footer-background": "#05060b",
+        "mid-left": "#7db6c7",
+        "mid-mid": "#38987b7",
+        "mid-right": "#fec43c"
+    },
+    {
+        "name": "Theme 4",
+        "header-footer-background": "#fff",
+        "mid-left": "#05060b",
+        "mid-mid": "#38987b7",
+        "mid-right": "#fec43c"
+    },
+    {
+        "name": "Theme 5",
+        "header-footer-background": "#000",
+        "mid-left": "#7db6c7",
+        "mid-mid": "#38987b7",
+        "mid-right": "#fec43c"
+    }
+]

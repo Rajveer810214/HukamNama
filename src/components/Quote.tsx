@@ -1,31 +1,42 @@
 import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-
 interface QuoteProps {
   onLock: (text: string) => void;
-  name:string
+  name: string;
+  characters: number;
 }
 
-const Quote: React.FC<QuoteProps> = ({ onLock ,name }) => {
+const Quote: React.FC<QuoteProps> = ({ onLock, name, characters }) => {
   const [text, setText] = useState<string>("");
-  const [wordCount, setWordCount] = useState<number>(0);
-  const wordLimit = 100;
+  const [characterCount, setCharacterCount] = useState<number>(0);
 
   const handleLock = () => {
     onLock(text);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
-    const words = inputValue.trim().split(/\s+/);
-    setWordCount(words.length);
+    const inputCharacterCount = inputValue.length;
 
-    if (words.length <= wordLimit) {
-      setText(inputValue);
+    setCharacterCount(inputCharacterCount);
+
+    if (inputCharacterCount <= characters) {
+      // Check if the last entered character is a space or word-break character
+      const lastChar = inputValue.charAt(inputCharacterCount - 1);
+      if (lastChar.match(/\s/)) {
+        // If the last entered character is a space, update the text state
+        setText(inputValue);
+      } else {
+        // If the last entered character is not a space, truncate the text
+        setText(inputValue.slice(0, characters));
+      }
     }
   };
-
+  const handleReset = () => {
+    setText("");
+    setCharacterCount(0);
+  };
   return (
     <div>
       <TextField
@@ -33,19 +44,35 @@ const Quote: React.FC<QuoteProps> = ({ onLock ,name }) => {
         value={text}
         placeholder={name}
         onChange={handleChange}
-        disabled={wordCount >= wordLimit}
+        disabled={characterCount >= characters}
       />
       <div>
-        Words: {wordCount}/{wordLimit}
+        Characters: {characterCount}/{characters}
       </div>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={handleLock}
-        disabled={wordCount === 0 || wordCount > wordLimit}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          gap: "50px",
+        }}
       >
-        Lock
-      </Button>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleLock}
+          disabled={characterCount === 0 || characterCount > characters}
+        >
+          Lock
+        </Button>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleReset}
+          disabled={characterCount === 0}
+        >
+          Reset
+        </Button>
+      </div>
     </div>
   );
 };
