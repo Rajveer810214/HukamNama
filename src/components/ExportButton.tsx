@@ -24,7 +24,7 @@ const ExportButton: React.FC<ExportButtonProps> = ({ onExport, canvasId }) => {
   const handleExportClick = (format: string) => {
     handleClose();
     onExport(format);
-    setTimeout(() => exportCanvasToImage(format), 100);
+    setTimeout(() => exportCanvasToImage(format), 500);
   };
 
   const exportCanvasToImage = async (format: string) => {

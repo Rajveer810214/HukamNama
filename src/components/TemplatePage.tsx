@@ -3,7 +3,6 @@ import { useState } from "react";
 import AttractiveDropdown from "./DropDown";
 import LogoUploadButton from "./LogoButton";
 import ExportButton from "./ExportButton";
-import Canvas from "./Canvas";
 import logo from "../assets/logo.jpg";
 import Quote from "./Quote";
 import { Typography } from "@mui/material";
@@ -175,194 +174,196 @@ function getFormattedDate() {
 
       {/* Right Part - 75% */}
       <div
+        id={"template"}
         style={{
           width: "80%",
-          padding: "5px",
           color: theme["text-color"],
           backgroundColor: "#ffffff",
         }}
       >
-        <Canvas canvasId={"template"}>
-          {/* Header */}
+        {/* Header */}
+        <div
+          id="main"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            justifyContent: "center",
+            height: "12vh",
+            marginBottom: ".1vh",
+            border:'1px solid black',
+            backgroundColor: theme["header-footer-background"],
+          }}
+        >
           <div
-            id="main"
             style={{
               display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              justifyContent: "center",
-              height: "12vh",
-              marginBottom: ".1vh",
-              backgroundColor: theme["header-footer-background"],
+              alignItems: "center",
+              width: "100%",
+              height: "10vh",
             }}
           >
             <div
               style={{
+                marginLeft: "5px",
                 display: "flex",
                 alignItems: "center",
-                width: "100%",
-                height: "10vh",
               }}
             >
-              <div
-                style={{
-                  marginLeft: "5px",
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                {/* Logo on top right */}
-                {selectedLogo ? (
-                  <img
-                    src={URL.createObjectURL(selectedLogo)}
-                    alt="Uploaded Logo"
-                    style={{ width: "61px", height: "61px" }}
-                  />
-                ) : (
-                  <img
-                    src={logo}
-                    alt="Logo"
-                    style={{ width: "61px", height: "61px" }}
-                  />
-                )}
-              </div>
+              {/* Logo on top right */}
+              {selectedLogo ? (
+                <img
+                  src={URL.createObjectURL(selectedLogo)}
+                  alt="Uploaded Logo"
+                  style={{ width: "61px", height: "61px" }}
+                />
+              ) : (
+                <img
+                  src={logo}
+                  alt="Logo"
+                  style={{ width: "61px", height: "61px" }}
+                />
+              )}
+            </div>
 
-              {/* Centered appname */}
-              <div
+            {/* Centered appname */}
+            <div
+              style={{
+                textAlign: "center",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "100%",
+              }}
+            >
+              <h3
+                className="english punjabi"
+                id="appname"
                 style={{
-                  textAlign: "center",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  width: "100%",
+                  margin: 0,
+                }}
+              ></h3>
+              <p className="english" style={{ margin: 0 }}>
+                {getFormattedDate()}
+              </p>
+              <Typography
+                className="punjabi"
+                align="center"
+                variant="h6"
+                fontFamily={"Anmol"}
+                fontSize="16px"
+                style={{
+                  padding: "1px",
                 }}
               >
-                <h3
-                  className="english punjabi"
-                  id="appname"
-                  style={{
-                    margin: 0,
-                  }}
-                ></h3>
-                <p className="english" style={{ margin: 0 }}>
-                  {getFormattedDate()}
-                </p>
-                <Typography
-                  className="punjabi"
-                  align="center"
-                  variant="h6"
-                  fontFamily={"Anmol"}
-                  fontSize="16px"
-                  style={{
-                    padding: "1px",
-                  }}
-                >
-                  ਅੱਜ ਦਾ ਹੁਕਮਨਾਮਾ
-                </Typography>
-              </div>
+                ਅੱਜ ਦਾ ਹੁਕਮਨਾਮਾ
+              </Typography>
             </div>
           </div>
+        </div>
 
-          {/* Mid Part */}
+        {/* Mid Part */}
+        <div
+          style={{
+            display: "flex",
+            height: "74vh",
+            color: theme["gurbani-color"],
+          }}
+        >
           <div
+            style={{
+              width: "33.33%", // Adjusted width
+              backgroundColor: theme["mid-left"],
+              paddingInline: "1px",
+              overflow: "hidden",
+              paddingBlock: "3px",
+              border: "1px solid black",
+            }}
+          >
+            <p className="punjabi" style={{}}>
+              ੴ ਸਤਿਗੁਰ ਪ੍ਰਸਾਦਿ ॥ ਸਲੋਕ ਮਹਲਾ ੯ ॥ ਗੁਨ ਗੋਬਿੰਦ ਗਾਇਓ ਨਹੀ ਜਨਮੁ ਅਕਾਰਥ
+              ਕੀਨੁ ॥ ਕਹੁ ਨਾਨਕ ਹਰਿ ਭਜੁ ਮਨਾ ਜਿਹ ਬਿਧਿ ਜਲ ਕਉ ਮੀਨੁ ॥੧॥ ਬਿਖਿਅਨ ਸਿਉ
+              ਕਾਹੇ ਰਚਿਓ ਨਿਮਖ ਨ ਹੋਹਿ ਉਦਾਸੁ ॥ ਕਹੁ ਨਾਨਕ ਭਜੁ ਹਰਿ ਮਨਾ ਪਰੈ ਨ ਜਮ ਕੀ ਫਾਸ
+              ॥੨॥ ਤਰਨਾਪੋ ਇਉ ਹੀ ਗਇਓ ਲੀਓ ਜਰਾ ਤਨੁ ਜੀਤਿ ॥ ਕਹੁ ਨਾਨਕ ਭਜੁ ਹਰਿ ਮਨਾ ਅਉਧ
+              ਜਾਤੁ ਹੈ ਬੀਤਿ ॥੩॥ ਬਿਰਧਿ ਭਇਓ ਸੂਝੈ ਨਹੀ ਕਾਲੁ ਪਹੂਚਿਓ ਆਨਿ ॥੫॥ ਪਤਿਤ ਉਧਾਰਨ
+              ਭੈ ਹਰਨ ਹਰਿ ਅਨਾਥ ਕੇ ਨਾਥ ॥ ਕਹੁ ਨਾਨਕ ਤਿਹ ਜਾਨੀਐ ਸਦਾ ਬਸਤੁ ਤੁਮ ਸਾਥਿ ॥੬॥
+              ਤਨੁ ਧਨੁ ਜਿਹ ਤੋ ਕਉ ਦੀਓ ਤਾਂ ਸਿਉ ਨੇਹੁ ਨ ਕੀਨ ॥ ਕਹੁ ਨਾਨਕ ਨਰ ਬਾਵਰੇ ਅਬ
+              ਕਿਉ ਡੋਲਤ ਦੀਨ ॥੭॥ ਤਨੁ ਧਨੁ ਸੰਪੈ ਸੁਖ ਦੀਓ ਅਰੁ ਜਿਹ ਨੀਕੇ ਧਾਮ ॥ ਕਹੁ ਨਾਨਕ
+              ਸੁਨੁ ਰੇ ਮਨਾ ਸਿਮਰਤ ਕਾਹਿ ਨ ਰਾਮੁ ॥੮॥ ਸਭ ਸੁਖ ਦਾਤਾ ਰਾਮੁ ਹੈ ਦੂਸਰ ਨਾਹਿਨ
+              ਕੋਇ ॥
+            </p>
+          </div>
+          <div
+            style={{
+              width: "33.33%", // Adjusted width
+              backgroundColor: theme["mid-mid"],
+              paddingInline: "1px",
+              overflow: "hidden",
+              paddingBlock: "3px",
+              border: "1px solid black",
+            }}
+          >
+            {/* Middle Part of Mid */}
+            <p className="punjabi" style={{}}>
+              ਕਾਹੇ ਰਚਿਓ ਨਿਮਖ ਨ ਹੋਹਿ ਉਦਾਸੁ ॥ ਕਹੁ ਨਾਨਕ ਭਜੁ ਹਰਿ ਮਨਾ ਪਰੈ ਨ ਜਮ ਕੀ ਫਾਸ
+              ॥੨॥ ਤਰਨਾਪੋ ਇਉ ਹੀ ਗਇਓ ਲੀਓ ਜਰਾ ਤਨੁ ਜੀਤਿ ॥ ਕਹੁ ਨਾਨਕ ਭਜੁ ਹਰਿ ਮਨਾ ਅਉਧ
+              ਜਾਤੁ ਹੈ ਬੀਤਿ ॥੩॥ ਬਿਰਧਿ ਭਇਓ ਸੂਝੈ ਨਹੀ ਕਾਲੁ ਪਹੂਚਿਓ ਆਨਿ ॥ ਕਹੁ ਨਾਨਕ ਨਰ
+              ਬਾਵਰੇ ਕਿਉ ਨ ਭਜੈ ਭਗਵਾਨੁ ॥੪॥ ਧਨੁ ਦਾਰਾ ਸੰਪਤਿ ਸਗਲ ਜਿਨਿ ਅਪੁਨੀ ਕਰਿ ਮਾਨਿ
+              ॥ ਇਨ ਮੈ ਕਛੁ ਸੰਗੀ ਨਹੀ ਨਾਨਕ ਸਾਚੀ ਜਾਨਿ ॥੫॥ ਪਤਿਤ ਉਧਾਰਨ ਭੈ ਹਰਨ ਹਰਿ ਅਨਾਥ
+              ਕੇ ਨਾਥ ॥ ਕਹੁ ਨਾਨਕ ਤਿਹ ਜਾਨੀਐ ਸਦਾ ਬਸਤੁ ਤੁਮ ਸਾਥਿ ॥੬॥ ਤਨੁ ਧਨੁ ਜਿਹ ਤੋ
+              ਕਉ ਦੀਓ ਤਾਂ ਸਿਉ ਨੇਹੁ ਨ ਕੀਨ ॥ ਕਹੁ ਨਾਨਕ ਨਰ ਬਾਵਰੇ ਅਬ ਕਿਉ ਡੋਲਤ ਦੀਨ ॥੭॥
+              ਤਨੁ ਧਨੁ ਸੰਪੈ ਸੁਖ ਦੀਓ ਅਰੁ ਜਿਹ ਨੀਕੇ ਧਾਮ ॥ ਕਹੁ ਨਾਨਕ ਸੁਨੁ ਰੇ ਮਨਾ ਸਿਮਰਤ
+              ਕਾਹਿ ਨ ਰਾਮੁ ॥੮॥ ਸਭ ਸੁਖ ਦਾਤਾ ਰਾਮੁ ਹੈ ਦੂਸਰ ਨਾਹਿਨ ਕੋਇ ॥
+            </p>
+          </div>
+          <div
+            style={{
+              width: "33.33%", // Adjusted width
+              backgroundColor: theme["mid-right"],
+              paddingInline: "2px",
+              overflow: "hidden",
+              paddingBlock: "2px",
+              border: "1px solid black",
+            }}
+          >
+            {/* Middle Part of Mid */}
+            <p className="english" style={{}}>
+              Salok Mahala 9: The virtues of the Lord are sung, and one's life
+              becomes fruitful by meditating on the purpose of life. Says Nanak,
+              worship the Lord in such a way that, like the fish in water, you
+              remain absorbed in Him. ||1|| Why have you formed attachments to
+              poison? In an instant, you will become sad. Says Nanak, meditate
+              on the Lord, and you will not be subject to the noose of death.
+              ||2|| You have crossed over the treacherous world-ocean, and your
+              body has conquered old age. Says Nanak, meditate on the Lord; your
+              time of death is near.
+            </p>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div
+          style={{
+            backgroundColor: theme["header-footer-background"],
+            position: "absolute",
+            width: "77.34vw",
+            height: "10.7vh",
+            marginTop: ".1vh",
+            border: "1px solid black",
+          }}
+        >
+          <p
+            className="english"
+            id="quote"
             style={{
               display: "flex",
-              height: "74vh",
-              color: theme["gurbani-color"],
+              justifyContent: "center",
+              fontSize: "18px",
+              marginInline: "3px",
             }}
-          >
-            <div
-              style={{
-                width: "33.33%", // Adjusted width
-                backgroundColor: theme["mid-left"],
-                paddingInline: "1px",
-                overflow: "hidden",
-                paddingBlock: "3px",
-              }}
-            >
-              <p className="punjabi" style={{}}>
-                ੴ ਸਤਿਗੁਰ ਪ੍ਰਸਾਦਿ ॥ ਸਲੋਕ ਮਹਲਾ ੯ ॥ ਗੁਨ ਗੋਬਿੰਦ ਗਾਇਓ ਨਹੀ ਜਨਮੁ ਅਕਾਰਥ
-                ਕੀਨੁ ॥ ਕਹੁ ਨਾਨਕ ਹਰਿ ਭਜੁ ਮਨਾ ਜਿਹ ਬਿਧਿ ਜਲ ਕਉ ਮੀਨੁ ॥੧॥ ਬਿਖਿਅਨ ਸਿਉ
-                ਕਾਹੇ ਰਚਿਓ ਨਿਮਖ ਨ ਹੋਹਿ ਉਦਾਸੁ ॥ ਕਹੁ ਨਾਨਕ ਭਜੁ ਹਰਿ ਮਨਾ ਪਰੈ ਨ ਜਮ ਕੀ
-                ਫਾਸ ॥੨॥ ਤਰਨਾਪੋ ਇਉ ਹੀ ਗਇਓ ਲੀਓ ਜਰਾ ਤਨੁ ਜੀਤਿ ॥ ਕਹੁ ਨਾਨਕ ਭਜੁ ਹਰਿ ਮਨਾ
-                ਅਉਧ ਜਾਤੁ ਹੈ ਬੀਤਿ ॥੩॥ ਬਿਰਧਿ ਭਇਓ ਸੂਝੈ ਨਹੀ ਕਾਲੁ ਪਹੂਚਿਓ ਆਨਿ ॥੫॥ ਪਤਿਤ
-                ਉਧਾਰਨ ਭੈ ਹਰਨ ਹਰਿ ਅਨਾਥ ਕੇ ਨਾਥ ॥ ਕਹੁ ਨਾਨਕ ਤਿਹ ਜਾਨੀਐ ਸਦਾ ਬਸਤੁ ਤੁਮ
-                ਸਾਥਿ ॥੬॥ ਤਨੁ ਧਨੁ ਜਿਹ ਤੋ ਕਉ ਦੀਓ ਤਾਂ ਸਿਉ ਨੇਹੁ ਨ ਕੀਨ ॥ ਕਹੁ ਨਾਨਕ ਨਰ
-                ਬਾਵਰੇ ਅਬ ਕਿਉ ਡੋਲਤ ਦੀਨ ॥੭॥ ਤਨੁ ਧਨੁ ਸੰਪੈ ਸੁਖ ਦੀਓ ਅਰੁ ਜਿਹ ਨੀਕੇ ਧਾਮ
-                ॥ ਕਹੁ ਨਾਨਕ ਸੁਨੁ ਰੇ ਮਨਾ ਸਿਮਰਤ ਕਾਹਿ ਨ ਰਾਮੁ ॥੮॥ ਸਭ ਸੁਖ ਦਾਤਾ ਰਾਮੁ ਹੈ
-                ਦੂਸਰ ਨਾਹਿਨ ਕੋਇ ॥
-              </p>
-            </div>
-            <div
-              style={{
-                width: "33.33%", // Adjusted width
-                backgroundColor: theme["mid-mid"],
-                paddingInline: "1px",
-                overflow: "hidden",
-                paddingBlock: "3px",
-              }}
-            >
-              {/* Middle Part of Mid */}
-              <p className="punjabi" style={{}}>
-                ਕਾਹੇ ਰਚਿਓ ਨਿਮਖ ਨ ਹੋਹਿ ਉਦਾਸੁ ॥ ਕਹੁ ਨਾਨਕ ਭਜੁ ਹਰਿ ਮਨਾ ਪਰੈ ਨ ਜਮ ਕੀ
-                ਫਾਸ ॥੨॥ ਤਰਨਾਪੋ ਇਉ ਹੀ ਗਇਓ ਲੀਓ ਜਰਾ ਤਨੁ ਜੀਤਿ ॥ ਕਹੁ ਨਾਨਕ ਭਜੁ ਹਰਿ ਮਨਾ
-                ਅਉਧ ਜਾਤੁ ਹੈ ਬੀਤਿ ॥੩॥ ਬਿਰਧਿ ਭਇਓ ਸੂਝੈ ਨਹੀ ਕਾਲੁ ਪਹੂਚਿਓ ਆਨਿ ॥ ਕਹੁ
-                ਨਾਨਕ ਨਰ ਬਾਵਰੇ ਕਿਉ ਨ ਭਜੈ ਭਗਵਾਨੁ ॥੪॥ ਧਨੁ ਦਾਰਾ ਸੰਪਤਿ ਸਗਲ ਜਿਨਿ ਅਪੁਨੀ
-                ਕਰਿ ਮਾਨਿ ॥ ਇਨ ਮੈ ਕਛੁ ਸੰਗੀ ਨਹੀ ਨਾਨਕ ਸਾਚੀ ਜਾਨਿ ॥੫॥ ਪਤਿਤ ਉਧਾਰਨ ਭੈ
-                ਹਰਨ ਹਰਿ ਅਨਾਥ ਕੇ ਨਾਥ ॥ ਕਹੁ ਨਾਨਕ ਤਿਹ ਜਾਨੀਐ ਸਦਾ ਬਸਤੁ ਤੁਮ ਸਾਥਿ ॥੬॥
-                ਤਨੁ ਧਨੁ ਜਿਹ ਤੋ ਕਉ ਦੀਓ ਤਾਂ ਸਿਉ ਨੇਹੁ ਨ ਕੀਨ ॥ ਕਹੁ ਨਾਨਕ ਨਰ ਬਾਵਰੇ ਅਬ
-                ਕਿਉ ਡੋਲਤ ਦੀਨ ॥੭॥ ਤਨੁ ਧਨੁ ਸੰਪੈ ਸੁਖ ਦੀਓ ਅਰੁ ਜਿਹ ਨੀਕੇ ਧਾਮ ॥ ਕਹੁ
-                ਨਾਨਕ ਸੁਨੁ ਰੇ ਮਨਾ ਸਿਮਰਤ ਕਾਹਿ ਨ ਰਾਮੁ ॥੮॥ ਸਭ ਸੁਖ ਦਾਤਾ ਰਾਮੁ ਹੈ ਦੂਸਰ
-                ਨਾਹਿਨ ਕੋਇ ॥
-              </p>
-            </div>
-            <div
-              style={{
-                width: "33.33%", // Adjusted width
-                backgroundColor: theme["mid-right"],
-                paddingInline: "2px",
-                overflow: "hidden",
-                paddingBlock: "2px",
-              }}
-            >
-              {/* Middle Part of Mid */}
-              <p className="english" style={{}}>
-                Salok Mahala 9: The virtues of the Lord are sung, and one's life
-                becomes fruitful by meditating on the purpose of life. Says
-                Nanak, worship the Lord in such a way that, like the fish in
-                water, you remain absorbed in Him. ||1|| Why have you formed
-                attachments to poison? In an instant, you will become sad. Says
-                Nanak, meditate on the Lord, and you will not be subject to the
-                noose of death. ||2|| You have crossed over the treacherous
-                world-ocean, and your body has conquered old age. Says Nanak,
-                meditate on the Lord; your time of death is near.
-              </p>
-            </div>
-          </div>
-
-          {/* Footer */}
-          <div
-            style={{
-              backgroundColor: theme["header-footer-background"],
-              position: "absolute",
-              width: "76.9vw",
-              height: "9vh",
-              marginTop: ".1vh",
-            }}
-          >
-            <p
-              className="english"
-              id="quote"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                fontSize: "18px",
-                marginInline: "3px",
-              }}
-            ></p>
-          </div>
-        </Canvas>
+          ></p>
+        </div>
       </div>
     </div>
   );
