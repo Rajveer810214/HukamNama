@@ -37,7 +37,7 @@ const ExportButton: React.FC<ExportButtonProps> = ({ onExport, canvasId }) => {
         );
         const link = document.createElement("a");
         link.href = canvasDataUrl;
-        link.download = "canvas-image." + format;
+        link.download = "Hukamnama " + new Date().toJSON().slice(0, 10) ;
         link.click();
       } catch (error) {
         console.error("Error exporting canvas:", error);

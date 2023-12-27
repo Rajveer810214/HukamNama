@@ -8,6 +8,7 @@ import logo from "../assets/logo.jpg";
 import Quote from "./Quote";
 import { Typography } from "@mui/material";
 import "../Theme/fonts/fonts.css";
+import themes from '../Theme/Theme.json'
 
 const TemplatePage: React.FC = () => {
 const handleLock = (id: string) => (text: string) => {
@@ -29,24 +30,53 @@ const handleLock = (id: string) => (text: string) => {
      element.style.fontFamily = font;
    }
  };
- 
+ const [theme, setTheme] = useState({
+   "header-footer-background": "#ffa61a",
+   "mid-left": "#5a6992",
+   "mid-mid": "#6795d3",
+   "mid-right": "#fc7d10",
+   "text-color": "#06185d",
+   "gurbani-color": "#06185d",
+ });
 
-  const handleThemeChange = (theme: string, id: string) => {
-    // Apply the selected theme to the component with the specified ID
-    document.getElementById(id)!.style.backgroundColor = theme;
-  };
+const handleThemeChange = (themeName: string): void => {
+  // Find the selected theme in the imported themes array
+  const selectedTheme = themes.find((theme) => theme.name === themeName);
+
+  // If the selected theme is found, update the state
+  if (selectedTheme) {
+    setTheme({
+      "header-footer-background": selectedTheme["header-footer-background"],
+      "mid-left": selectedTheme["mid-left"],
+      "mid-mid": selectedTheme["mid-mid"],
+      "mid-right": selectedTheme["mid-right"],
+      "text-color":selectedTheme['text-color'],
+      "gurbani-color":selectedTheme['gurbani-color']
+    });
+  }
+else {
+        console.error(`Theme ${themeName} not found in themes.json`);
+      }
+  
+};
+function getFormattedDate() {
+  const options = { month: "long", day: "numeric", year: "numeric" };
+  const today = new Date();
+  const formattedDate = today.toLocaleDateString("en-US", options);
+
+  return formattedDate;
+}
+
   return (
-    <div fullWidth style={{ display: "flex", height: "100vh", width: "100vw" }}>
+    <div style={{ display: "flex", maxHeight: "100vh", maxWidth: "100vw" }}>
       {/* Left Part - 25% */}
       <div
-      className="english"
+        className="english"
         style={{ width: "20%", padding: "20px", backgroundColor: "#f0f0f0" }}
       >
         <div
           style={{
-            marginRight: "100px",
-            marginBottom: "1vh",
-
+            marginBottom: "1.2rem",
           }}
         >
           <AttractiveDropdown
@@ -65,46 +95,67 @@ const handleLock = (id: string) => (text: string) => {
         </div>
         <div
           style={{
-            marginRight: "100px",
-            marginBottom: "1vh",
+            marginBottom: "1.2rem",
           }}
         >
           <AttractiveDropdown
             dropdownName="Choose English Font"
-            options={["Arial", "Verdana", "PT-Serif", "Roboto", "Garamond", "FreeSans", "Times New Roman"]}
+            options={[
+              "Arial",
+              "Verdana",
+              "PT-Serif",
+              "Roboto",
+              "Garamond",
+              "FreeSans",
+              "Times New Roman",
+            ]}
             onOptionChange={(font) => handleFontChange(font, "english")}
             ids={[]}
           />
         </div>
-        <div style={{marginBottom: "1vh"}}>
+        <div style={{ marginBottom: "1.2rem" }}>
           <AttractiveDropdown
             dropdownName="Choose Theme"
-            options={["Theme 1", "Theme 2", "Theme 3"]}
-            onOptionChange={handleThemeChange}
+            options={[
+              "FLORAL",
+              "NIRBAAN",
+              "IMMORTAL_ORANGE",
+              "KHALSA_RUSH",
+              "BAAGI_BLUE",
+            ]}
+            onOptionChange={(themeName) => handleThemeChange(themeName)}
             ids={["main"]}
           />
         </div>
 
         <div
           style={{
-            marginBottom: "1vh",
+            marginBottom: "1.2rem",
           }}
         >
-          <Quote onLock={handleLock("appname")} name="Add Gurudwara name" characters={60} />
+          <Quote
+            onLock={handleLock("appname")}
+            name="Add Gurudwara name"
+            characters={60}
+          />
         </div>
         <div
           style={{
-            marginBottom: "1vh",
+            marginBottom: "1.2rem",
           }}
         >
-          <Quote onLock={handleLock("quote")} name="Add any message" characters={150} />
+          <Quote
+            onLock={handleLock("quote")}
+            name="Add any message"
+            characters={100}
+          />
         </div>
 
         <div
           style={{
             display: "flex",
             justifyContent: "center",
-            marginBottom: "1vh",
+            marginBottom: "1.2rem",
           }}
         >
           <LogoUploadButton onLogoSelect={handleLogoSelect} />
@@ -113,7 +164,6 @@ const handleLock = (id: string) => (text: string) => {
           style={{
             display: "flex",
             justifyContent: "center",
-            marginBottom: "1vh",
           }}
         >
           <ExportButton
@@ -125,7 +175,12 @@ const handleLock = (id: string) => (text: string) => {
 
       {/* Right Part - 75% */}
       <div
-        style={{ width: "80%", padding: "20px", backgroundColor: "#ffffff" }}
+        style={{
+          width: "80%",
+          padding: "5px",
+          color: theme["text-color"],
+          backgroundColor: "#ffffff",
+        }}
       >
         <Canvas canvasId={"template"}>
           {/* Header */}
@@ -136,8 +191,9 @@ const handleLock = (id: string) => (text: string) => {
               flexDirection: "column",
               alignItems: "flex-start",
               justifyContent: "center",
-              height: "15vh",
-              marginBottom: "2vh",
+              height: "12vh",
+              marginBottom: ".1vh",
+              backgroundColor: theme["header-footer-background"],
             }}
           >
             <div
@@ -145,28 +201,35 @@ const handleLock = (id: string) => (text: string) => {
                 display: "flex",
                 alignItems: "center",
                 width: "100%",
-                height: "15vh",
+                height: "10vh",
               }}
             >
-              {/* Logo on top right */}
-              {selectedLogo ? (
-                <img
-                  src={URL.createObjectURL(selectedLogo)}
-                  alt="Uploaded Logo"
-                  style={{ width: "90px", height: "90px", marginRight: "5px" }}
-                />
-              ) : (
-                <img
-                  src={logo}
-                  alt="Logo"
-                  style={{ width: "90px", height: "90px", marginRight: "5px" }}
-                />
-              )}
+              <div
+                style={{
+                  marginLeft: "5px",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                {/* Logo on top right */}
+                {selectedLogo ? (
+                  <img
+                    src={URL.createObjectURL(selectedLogo)}
+                    alt="Uploaded Logo"
+                    style={{ width: "61px", height: "61px" }}
+                  />
+                ) : (
+                  <img
+                    src={logo}
+                    alt="Logo"
+                    style={{ width: "61px", height: "61px" }}
+                  />
+                )}
+              </div>
 
               {/* Centered appname */}
               <div
                 style={{
-                  color: "black",
                   textAlign: "center",
                   display: "flex",
                   flexDirection: "column",
@@ -176,21 +239,22 @@ const handleLock = (id: string) => (text: string) => {
                 }}
               >
                 <h3
-                  className="english"
+                  className="english punjabi"
                   id="appname"
                   style={{
-                    color: "red",
                     margin: 0,
                   }}
                 ></h3>
-                <p style={{ margin: 0 }}>{new Date().toLocaleDateString()}</p>
+                <p className="english" style={{ margin: 0 }}>
+                  {getFormattedDate()}
+                </p>
                 <Typography
                   className="punjabi"
                   align="center"
                   variant="h6"
                   fontFamily={"Anmol"}
+                  fontSize="16px"
                   style={{
-                    color: "black",
                     padding: "1px",
                   }}
                 >
@@ -204,19 +268,20 @@ const handleLock = (id: string) => (text: string) => {
           <div
             style={{
               display: "flex",
-              justifyContent: "space-between",
-              marginBottom: "10px",
-              height: "65vh",
+              height: "74vh",
+              color: theme["gurbani-color"],
             }}
           >
             <div
               style={{
-                width: "33%", // Adjusted width
-                backgroundColor: "#857C8D",
-                padding: "5px",
+                width: "33.33%", // Adjusted width
+                backgroundColor: theme["mid-left"],
+                paddingInline: "1px",
+                overflow: "hidden",
+                paddingBlock: "3px",
               }}
             >
-              <p className="punjabi">
+              <p className="punjabi" style={{}}>
                 ੴ ਸਤਿਗੁਰ ਪ੍ਰਸਾਦਿ ॥ ਸਲੋਕ ਮਹਲਾ ੯ ॥ ਗੁਨ ਗੋਬਿੰਦ ਗਾਇਓ ਨਹੀ ਜਨਮੁ ਅਕਾਰਥ
                 ਕੀਨੁ ॥ ਕਹੁ ਨਾਨਕ ਹਰਿ ਭਜੁ ਮਨਾ ਜਿਹ ਬਿਧਿ ਜਲ ਕਉ ਮੀਨੁ ॥੧॥ ਬਿਖਿਅਨ ਸਿਉ
                 ਕਾਹੇ ਰਚਿਓ ਨਿਮਖ ਨ ਹੋਹਿ ਉਦਾਸੁ ॥ ਕਹੁ ਨਾਨਕ ਭਜੁ ਹਰਿ ਮਨਾ ਪਰੈ ਨ ਜਮ ਕੀ
@@ -231,13 +296,15 @@ const handleLock = (id: string) => (text: string) => {
             </div>
             <div
               style={{
-                width: "33%", // Adjusted width
-                backgroundColor: "#94BFBE",
-                padding: "10px",
+                width: "33.33%", // Adjusted width
+                backgroundColor: theme["mid-mid"],
+                paddingInline: "1px",
+                overflow: "hidden",
+                paddingBlock: "3px",
               }}
             >
               {/* Middle Part of Mid */}
-              <p className="punjabi">
+              <p className="punjabi" style={{}}>
                 ਕਾਹੇ ਰਚਿਓ ਨਿਮਖ ਨ ਹੋਹਿ ਉਦਾਸੁ ॥ ਕਹੁ ਨਾਨਕ ਭਜੁ ਹਰਿ ਮਨਾ ਪਰੈ ਨ ਜਮ ਕੀ
                 ਫਾਸ ॥੨॥ ਤਰਨਾਪੋ ਇਉ ਹੀ ਗਇਓ ਲੀਓ ਜਰਾ ਤਨੁ ਜੀਤਿ ॥ ਕਹੁ ਨਾਨਕ ਭਜੁ ਹਰਿ ਮਨਾ
                 ਅਉਧ ਜਾਤੁ ਹੈ ਬੀਤਿ ॥੩॥ ਬਿਰਧਿ ਭਇਓ ਸੂਝੈ ਨਹੀ ਕਾਲੁ ਪਹੂਚਿਓ ਆਨਿ ॥ ਕਹੁ
@@ -252,13 +319,15 @@ const handleLock = (id: string) => (text: string) => {
             </div>
             <div
               style={{
-                width: "33%", // Adjusted width
-                backgroundColor: "#ACF7C1",
-                padding: "10px",
+                width: "33.33%", // Adjusted width
+                backgroundColor: theme["mid-right"],
+                paddingInline: "2px",
+                overflow: "hidden",
+                paddingBlock: "2px",
               }}
             >
               {/* Middle Part of Mid */}
-              <p className="english" style={{ overflow: "hidden" }}>
+              <p className="english" style={{}}>
                 Salok Mahala 9: The virtues of the Lord are sung, and one's life
                 becomes fruitful by meditating on the purpose of life. Says
                 Nanak, worship the Lord in such a way that, like the fish in
@@ -267,28 +336,29 @@ const handleLock = (id: string) => (text: string) => {
                 Nanak, meditate on the Lord, and you will not be subject to the
                 noose of death. ||2|| You have crossed over the treacherous
                 world-ocean, and your body has conquered old age. Says Nanak,
-                meditate on the Lord; your time of death is near. ||3||
+                meditate on the Lord; your time of death is near.
               </p>
             </div>
           </div>
 
           {/* Footer */}
           <div
-            style={{ backgroundColor: "#f0f0f0", width: "100%", height: "8vh" }}
+            style={{
+              backgroundColor: theme["header-footer-background"],
+              position: "absolute",
+              width: "76.9vw",
+              height: "9vh",
+              marginTop: ".1vh",
+            }}
           >
             <p
               className="english"
               id="quote"
               style={{
-                height: "100%",
-                color: "red",
                 display: "flex",
-                alignItems: "center",
-                textAlign: "center",
                 justifyContent: "center",
-                fontSize:"18px",
-                overflow:'-moz-hidden-unscrollable',
-                marginInline:'3px'
+                fontSize: "18px",
+                marginInline: "3px",
               }}
             ></p>
           </div>

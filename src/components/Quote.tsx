@@ -46,7 +46,7 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         onChange={handleChange}
         disabled={characterCount >= characters}
       />
-      <div>
+      <div style={{ color: "#857C8D" }}>
         Characters: {characterCount}/{characters}
       </div>
       <div

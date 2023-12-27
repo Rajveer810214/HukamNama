@@ -30,7 +30,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   return (
     <FormControl
       variant="outlined"
-      style={{ marginBottom: "16px", marginTop: "16px", minWidth: "120px" }}
+      style={{ minWidth: "120px" }}
     >
       <Select value={selectedOption} onChange={handleChange} displayEmpty>
         <MenuItem value="" disabled>

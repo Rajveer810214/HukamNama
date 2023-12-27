@@ -1,37 +1,47 @@
 [
     {
-        "name": "Theme 1",
-        "header-footer-background": "#fff",
-        "mid-left": "#7db6c7",
-        "mid-mid": "#38987b7",
-        "mid-right": "#fec43c"
+        "name": "BAAGI_BLUE",
+        "header-footer-background": "#072e3d",
+        "mid-left": "#274f69",
+        "mid-mid": "#69265c",
+        "mid-right": "#ee3090",
+        "text-color":"#ffffff",
+        "gurbani-color":"#ffffff"
     },
     {
-        "name": "Theme 2",
-        "header-footer-background": "#000",
+        "name": "KHALSA_RUSH",
+        "header-footer-background": "#ffa61a",
         "mid-left": "#05060b",
         "mid-mid": "#38987b7",
-        "mid-right": "#fec43c"
+        "mid-right": "#fec43c",
+        "text-color": "#071f77",
+        "gurbani-color":"#071f77"
     },
     {
-        "name": "Theme 3",
-        "header-footer-background": "#05060b",
-        "mid-left": "#7db6c7",
-        "mid-mid": "#38987b7",
-        "mid-right": "#fec43c"
+        "name": "IMMORTAL_ORANGE",
+        "header-footer-background": "#ffa61a",
+        "mid-left": "#5a6992",
+        "mid-mid": "#6795d3",
+        "mid-right": "#fc7d10",
+        "text-color": "#06185d",
+        "gurbani-color":"#06185d"
     },
     {
-        "name": "Theme 4",
-        "header-footer-background": "#fff",
+        "name": "NIRBAAN",
+        "header-footer-background": "#002a52",
         "mid-left": "#05060b",
         "mid-mid": "#38987b7",
-        "mid-right": "#fec43c"
+        "mid-right": "#fec43c",
+        "text-color": "#ff723b",
+        "gurbani-color":"#ffebbe"
     },
     {
-        "name": "Theme 5",
-        "header-footer-background": "#000",
+        "name": "FLORAL",
+        "header-footer-background": "#f5b7d1",
         "mid-left": "#7db6c7",
         "mid-mid": "#38987b7",
-        "mid-right": "#fec43c"
+        "mid-right": "#fec43c",
+        "text-color": "#a3eafd",
+        "gurbani-color":"#440a1d"
     }
 ]
