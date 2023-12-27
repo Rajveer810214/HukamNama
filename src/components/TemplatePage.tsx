@@ -45,17 +45,19 @@ const handleLock = (id: string) => (text: string) => {
         <div
           style={{
             marginRight: "100px",
+            marginBottom: "1vh",
+
           }}
         >
           <AttractiveDropdown
             dropdownName="Choose Punjabi Font"
             options={[
               "Raaj",
-              "GurbaniAkhar",
+              "Raavi",
               "Anmol",
               "Noto-Bold",
-              "Gurbani Akhar Heavy",
-              "Gurbani Akhar Thick",
+              "Joy",
+              "Lohit-Punjabi",
             ]}
             onOptionChange={(font) => handleFontChange(font, "punjabi")}
             ids={[]}
@@ -64,16 +66,17 @@ const handleLock = (id: string) => (text: string) => {
         <div
           style={{
             marginRight: "100px",
+            marginBottom: "1vh",
           }}
         >
           <AttractiveDropdown
             dropdownName="Choose English Font"
-            options={["Caveat", "Muli", "PT-Serif"]}
+            options={["Arial", "Verdana", "PT-Serif", "Roboto", "Garamond", "FreeSans", "Times New Roman"]}
             onOptionChange={(font) => handleFontChange(font, "english")}
             ids={[]}
           />
         </div>
-        <div style={{}}>
+        <div style={{marginBottom: "1vh"}}>
           <AttractiveDropdown
             dropdownName="Choose Theme"
             options={["Theme 1", "Theme 2", "Theme 3"]}
@@ -101,7 +104,7 @@ const handleLock = (id: string) => (text: string) => {
           style={{
             display: "flex",
             justifyContent: "center",
-            marginTop: "10px",
+            marginBottom: "1vh",
           }}
         >
           <LogoUploadButton onLogoSelect={handleLogoSelect} />
@@ -110,7 +113,7 @@ const handleLock = (id: string) => (text: string) => {
           style={{
             display: "flex",
             justifyContent: "center",
-            marginTop: "10px",
+            marginBottom: "1vh",
           }}
         >
           <ExportButton
@@ -274,7 +277,7 @@ const handleLock = (id: string) => (text: string) => {
             style={{ backgroundColor: "#f0f0f0", width: "100%", height: "8vh" }}
           >
             <p
-              className="punjabi"
+              className="english"
               id="quote"
               style={{
                 height: "100%",
