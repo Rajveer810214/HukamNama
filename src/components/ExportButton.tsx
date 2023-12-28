@@ -32,7 +32,7 @@ const ExportButton: React.FC<ExportButtonProps> = ({ onExport, canvasId }) => {
 
     if (canvas) {
       try {
-         const scale = 3;
+         const scale = 4;
         const canvasDataUrl = await html2canvas(canvas, {
           useCORS: true,
           scale: scale,

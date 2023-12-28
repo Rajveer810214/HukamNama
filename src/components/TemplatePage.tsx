@@ -30,12 +30,12 @@ const handleLock = (id: string) => (text: string) => {
    }
  };
  const [theme, setTheme] = useState({
-   "header-footer-background": "#ffa61a",
-   "mid-left": "#5a6992",
-   "mid-mid": "#6795d3",
-   "mid-right": "#fc7d10",
-   "text-color": "#06185d",
-   "gurbani-color": "#06185d",
+  "header-footer-background": "#30001B",
+  "mid-left": "#CBBEB3",
+  "mid-mid": "#BCAF9C",
+  "mid-right": "#877B69",
+  "text-color": "#FFD700",
+  "gurbani-color":"#000000"
  });
 
 const handleThemeChange = (themeName: string): void => {
@@ -119,7 +119,7 @@ function getFormattedDate() {
               "FLORAL",
               "NIRBAAN",
               "IMMORTAL_ORANGE",
-              "KHALSA_RUSH",
+              "GUR_PRASAD",
               "BAAGI_BLUE",
             ]}
             onOptionChange={(themeName) => handleThemeChange(themeName)}
@@ -234,7 +234,7 @@ function getFormattedDate() {
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                width: "100%",
+                width: "85%",
               }}
             >
               <h3
