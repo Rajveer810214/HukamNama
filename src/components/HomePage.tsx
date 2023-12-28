@@ -1,5 +1,4 @@
 import React from "react";
-import { Typography } from "@mui/material";
 import SearchBar from "./SearchBar";
 import Navbar from "./Navbar";
 import WelcomeShabad from "./WelcomeShabad";

@@ -61,7 +61,7 @@ else {
 function getFormattedDate() {
   const options = { month: "long", day: "numeric", year: "numeric" };
   const today = new Date();
-  const formattedDate = today.toLocaleDateString("en-US", options);
+  const formattedDate = today.toLocaleDateString("en-US",options);
 
   return formattedDate;
 }

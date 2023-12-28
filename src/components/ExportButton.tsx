@@ -32,9 +32,11 @@ const ExportButton: React.FC<ExportButtonProps> = ({ onExport, canvasId }) => {
 
     if (canvas) {
       try {
-        const canvasDataUrl = await html2canvas(canvas, { useCORS: true }).then(
-          (canvas) => canvas.toDataURL("image/" + format)
-        );
+         const scale = 3;
+        const canvasDataUrl = await html2canvas(canvas, {
+          useCORS: true,
+          scale: scale,
+        }).then((canvas) => canvas.toDataURL("image/" + format));
         const link = document.createElement("a");
         link.href = canvasDataUrl;
         link.download = "Hukamnama " + new Date().toJSON().slice(0, 10) ;
